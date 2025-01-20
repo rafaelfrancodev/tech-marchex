@@ -31,3 +31,7 @@
 .mat-paginator {
   align-self: center;
 }
+
+.cdk-overlay-pane.custom-dialog-container {
+  width: 100%;
+}

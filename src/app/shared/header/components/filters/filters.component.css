@@ -1,19 +1,19 @@
 .filters-container {
-    padding: 16px;
+    padding: var(--relative-medium);
     width: 300px;
 
     .menu-links {
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        gap: 16px;
-        margin-bottom: 16px;
+        gap: var(--relative-medium);
+        margin-bottom: var(--relative-medium);
     }
 }
 
 .filter-field {
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: var(--relative-medium);
 }
 
 .actions {

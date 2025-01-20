@@ -8,7 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { FiltersComponent } from './components/filters/filters.component';
 import { RouterOutlet } from '@angular/router';
-import { Subject } from 'rxjs';
+import { ProductService } from '../../core/services/product.service';
+import { debounceTime, Subject } from 'rxjs';
 import { NavigationService } from '../../core/services/navigation.service';
 
 @Component({
@@ -33,8 +34,13 @@ export class HeaderComponent {
   searchTextChanged = new Subject<string>();
 
   constructor(
+    private productService: ProductService,
     private navigationService: NavigationService,
-  ) { }
+  ) {
+    this.searchTextChanged.pipe(debounceTime(300)).subscribe((searchText) => {
+      this.productService.filterByName(searchText);
+    });
+  }
 
   navigateToCatalog() {
     this.navigationService.goToCatalog();
@@ -48,11 +54,15 @@ export class HeaderComponent {
     this.isSidenavOpened = !this.isSidenavOpened;
   }
 
-  applyFilters(filters: any) { }
+  applyFilters(filters: any) {
+    this.productService.applyFilters(filters);
+  }
 
   onSearchChange(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
-    const searchText = input.value
+    const searchText = input.value;
+    console.log("event", searchText)
+
     this.searchTextChanged.next(searchText);
   }
 }

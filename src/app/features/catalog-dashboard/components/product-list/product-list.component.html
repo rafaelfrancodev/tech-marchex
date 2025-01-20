@@ -27,7 +27,8 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectProduct(row)"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectProduct(row)"
+        (contextmenu)="onRightClick($event, row)"></tr>
     </table>
   </div>
 

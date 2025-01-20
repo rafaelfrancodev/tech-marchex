@@ -1,0 +1,80 @@
+<main>
+    <div class="create-product-container">
+        <h2>Create Product</h2>
+
+        <form [formGroup]="productForm" (ngSubmit)="onUpsert()">
+            <mat-form-field appearance="outline" class="form-field"
+                [ngStyle]="{ visibility: 'hidden', height: '0', margin: '0', padding: '0' }">
+                <mat-label>ID</mat-label>
+                <input matInput formControlName="id" readonly />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" maxlength="40" />
+                <mat-error *ngIf="productForm.get('name')?.hasError('required')">
+                    Name is required
+                </mat-error>
+                <mat-error *ngIf="productForm.get('name')?.hasError('maxlength')">
+                    Maximum 40 characters allowed
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" maxlength="200" rows="4"></textarea>
+                <mat-error *ngIf="productForm.get('description')?.hasError('required')">
+                    Description is required
+                </mat-error>
+                <mat-error *ngIf="productForm.get('description')?.hasError('maxlength')">
+                    Maximum 200 characters allowed
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Unit Cost</mat-label>
+                <input matInput type="number" formControlName="unit" min="0.01" step="0.01" />
+                <mat-error *ngIf="productForm.get('unit')?.hasError('required')">
+                    Unit cost is required
+                </mat-error>
+                <mat-error *ngIf="productForm.get('unit')?.hasError('min')">
+                    Unit cost must be positive
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Orders</mat-label>
+                <input matInput type="number" formControlName="orders" min="1" />
+                <mat-error *ngIf="productForm.get('orders')?.hasError('required')">
+                    Orders is required
+                </mat-error>
+                <mat-error *ngIf="productForm.get('orders')?.hasError('min')">
+                    Orders must be a positive integer
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Image Link</mat-label>
+                <input matInput formControlName="imageLink" />
+                <mat-error *ngIf="productForm.get('imageLink')?.hasError('required')">
+                    Image link is required
+                </mat-error>
+                <mat-error *ngIf="productForm.get('imageLink')?.hasError('pattern')">
+                    Enter a valid URL
+                </mat-error>
+            </mat-form-field>
+
+            <div class="actions">
+                <button mat-raised-button type="submit" [disabled]="productForm.invalid">
+                    Save
+                </button>
+                <button mat-raised-button type="button" (click)="onReset()">
+                    Reset
+                </button>
+                <button mat-raised-button *ngIf="productForm.get('id')?.value" type="button" (click)="onDelete()">
+                    Delete
+                </button>
+            </div>
+        </form>
+    </div>
+</main>

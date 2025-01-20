@@ -3,9 +3,9 @@
     --secondary-color: #424242;
     --background-color: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --spacing-small: 8px;
-    --spacing-medium: 16px;
-    --spacing-large: 24px;
+    --relative-small: 0.5rem;
+    --relative-medium: 1rem;
+    --relative-large: 1.5rem;
 }
 
 .mat-elevation-z8 {
