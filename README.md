@@ -1,4 +1,3 @@
-
 # Catalog Dashboard
 
 The **Catalog Dashboard** is an Angular 19-based application designed for managing and visualizing product catalogs. It leverages Angular Material for a modern UI, ECharts for data visualization, and JSON Server for simulating backend APIs during development.
@@ -144,3 +143,18 @@ Angular CLI does not include an e2e testing framework by default. You can integr
 
 - [Angular Material](https://material.angular.io/)
 - [ECharts Documentation](https://echarts.apache.org/)
+
+---
+
+## Potential Improvements
+
+The project has room for further enhancements to improve its robustness, scalability, and maintainability. Here are some suggestions:
+
+- **Unit Testing:** Implement comprehensive unit tests for all components, services, and utility functions.
+- **Mock-Based Testing:** Use mocks to isolate dependencies and ensure accurate testing of individual modules.
+- **Performance Analysis:** Analyze and optimize the application's performance, focusing on data loading times and rendering efficiency.
+- **Project Scalability:** Review the project's structure to ensure it can accommodate future features and a growing codebase.
+- **Complex Features:** Implement advanced features like dynamic chart filtering, data export functionalities, and user role management.
+- **Code Reviews:** Regularly conduct code reviews to maintain code quality and adherence to best practices.
+- **Continuous Integration:** Set up CI/CD pipelines for automated testing and deployment.
+- **Documentation:** Expand on project documentation to include detailed developer guides and API references.
