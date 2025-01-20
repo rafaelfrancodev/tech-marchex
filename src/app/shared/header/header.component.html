@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="toolbar">
+
+    <div class="toolbar-logo">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Logo" />
+        </div>
+    </div>
+
+    <div class="toolbar-actions">
+        <div class="toolbar-links" fxHide.lt-md>
+            <a mat-button (click)="navigateToCatalog()">Catalog Dashboard</a>
+            <a mat-button (click)="navigateToCreateProduct()">Create Product</a>
+        </div>
+
+        <div class="search-container">
+            <div class="search-bar" fxFlex fxHide.lt-md>
+                <mat-form-field appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <mat-icon>search</mat-icon>
+                    <input matInput (keyup)="onSearchChange($event)" />
+                </mat-form-field>
+            </div>
+
+            <button mat-icon-button fxHide.gt-sm (click)="toggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+
+    </div>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" [(opened)]="isSidenavOpened">
+        <app-filters (filterChange)="applyFilters($event)"></app-filters>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

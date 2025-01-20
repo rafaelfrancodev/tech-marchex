@@ -1,0 +1,43 @@
+<div class="filters-container">
+    <h3>Menu</h3>
+    <div class="menu-links">
+        <a mat-button (click)="navigateToCatalog()">Catalog Dashboard</a>
+        <a mat-button (click)="navigateToCreateProduct()">Create Product</a>
+    </div>
+
+    <h3>Filters</h3>
+    <form [formGroup]="filtersForm">
+        <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>Comparison (Unit Cost)</mat-label>
+            <mat-select formControlName="unitCostComparison">
+                <mat-option *ngFor="let option of comparisonOptions" [value]="option.value">
+                    {{ option.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>Unit Cost</mat-label>
+            <input matInput type="number" formControlName="unitCost" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>Comparison (Total Sales)</mat-label>
+            <mat-select formControlName="totalSalesComparison">
+                <mat-option *ngFor="let option of comparisonOptions" [value]="option.value">
+                    {{ option.label }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+            <mat-label>Total Sales</mat-label>
+            <input matInput type="number" formControlName="totalSales" />
+        </mat-form-field>
+
+        <div class="actions">
+            <button mat-raised-button color="primary" type="button" (click)="applyFilters()">Apply</button>
+            <button mat-raised-button color="warn" type="button" (click)="resetFilters()">Clear</button>
+        </div>
+    </form>
+</div>
