@@ -1,0 +1,25 @@
+main {
+    display: flex;
+
+    app-product-list {
+        flex-grow: 1;
+        overflow: auto;
+    }
+
+    app-product-details {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        app-product-list {
+            flex: 1 1 50%;
+        }
+
+        app-product-details {
+            display: block;
+            flex: 1 1 50%;
+        }
+    }
+}

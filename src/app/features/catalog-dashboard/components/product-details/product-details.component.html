@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-card class="product-details">
+    <div class="product-upper">
+      <div class="product-image">
+        <img [src]="selectedProduct?.imageLink" />
+      </div>
+      <div class="product-info">
+        <h2>{{ selectedProduct?.name }}</h2>
+        <p>{{ selectedProduct?.description }}</p>
+      </div>
+    </div>
+    <div echarts [options]="chartOptions" class="custom-chart"></div>
+  </mat-card>
+</div>
