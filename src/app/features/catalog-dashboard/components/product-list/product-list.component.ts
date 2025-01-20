@@ -60,6 +60,7 @@ export class ProductListComponent {
 
     if (window.innerWidth < 1024) {
       this.dialog.open(ProductDetailsComponent, {
+        width: "600px",
         panelClass: 'custom-dialog-container'
       });
     }

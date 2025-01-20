@@ -1,5 +1,5 @@
 .custom-chart {
-  height: 100%;
+  max-height: 240px;
   width: 100%;
 }
 
@@ -9,6 +9,7 @@
 }
 
 .product-upper {
+  max-width: 500px;
   padding: var(--relative-medium);
 }
 
@@ -17,7 +18,8 @@
 
   img {
     width: 100%;
-    object-fit: cover;
+    max-height: 100px;
+    object-fit: contain;
   }
 }
 
@@ -57,5 +59,9 @@
 
   .product-lower {
     width: 100%;
+  }
+
+  .custom-chart {
+    max-height: inherit;
   }
 }

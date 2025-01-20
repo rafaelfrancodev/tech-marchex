@@ -8,6 +8,7 @@
     width: 100vw;
     height: 15vh;
     padding: 0.5rem;
+    min-height: 125px;
 }
 
 .toolbar-logo {
